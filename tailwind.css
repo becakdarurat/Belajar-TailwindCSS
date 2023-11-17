@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* akan di compile sebagai nilai default di css nya */
+@layer base {
+    h1 {
+        /* function theme mengambil langsung di theme yang ada tailwind.config , fungsinya sebagai function, kalau mau di tidak spesifik bisa langsung masuk kan ke font size nya, tapi kalau mau spesifik pakai theme */
+        font-size: 10rem;
+        color: theme(colors.wpu);
+    }
+}
+
+/* akan di buatkan di components nya */
+@layer components {
+    .grid-card {
+        @apply  bg-blue-500 aspect-[4/3] w-full rounded-lg h-full md:aspect-[3/4] xl:aspect-[4/3] overflow-hidden relative cursor-pointer hover:scale-95 transition-all duration-500;
+    }
+    .grid-card-img {
+        @apply w-full h-full  bg-cover bg-center absolute group-hover:scale-125 group-hover:rotate-12 transition-all duration-500;
+    }
+  }
+
+/* akan di buatkan di akhir dari tailwindcss nya */
+@layer utilities {
+
+}

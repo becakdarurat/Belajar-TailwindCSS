@@ -434,6 +434,12 @@ video {
   display: none;
 }
 
+h1 {
+  /* function theme mengambil langsung di theme yang ada tailwind.config , fungsinya sebagai function, kalau mau di tidak spesifik bisa langsung masuk kan ke font size nya, tapi kalau mau spesifik pakai theme */
+  font-size: 10rem;
+  color: #bada55;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -566,6 +572,57 @@ video {
   .container {
     max-width: 1536px;
   }
+}
+
+.grid-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.grid-card:hover {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@media (min-width: 768px) {
+  .grid-card {
+    aspect-ratio: 3/4;
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-card {
+    aspect-ratio: 4/3;
+  }
+}
+
+.grid-card-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
+}
+
+.group:hover .grid-card-img {
+  --tw-rotate: 12deg;
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .invisible {
@@ -739,10 +796,6 @@ video {
 
 .hidden {
   display: none;
-}
-
-.aspect-\[4\/3\] {
-  aspect-ratio: 4/3;
 }
 
 .h-10 {
@@ -952,11 +1005,6 @@ video {
   background-color: rgb(250 128 114 / var(--tw-bg-opacity));
 }
 
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
-
 .bg-green-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
@@ -1016,56 +1064,8 @@ video {
   background-color: rgb(202 138 4 / var(--tw-bg-opacity));
 }
 
-.bg-\[\] {
-  background-color: ;
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\)\] {
-  background-image: url();
-}
-
-.bg-\[url\(\'\/\'\)\] {
-  background-image: url('/');
-}
-
-.bg-\[url\(\'\/img\/\'\)\] {
-  background-image: url('/img/');
-}
-
-.bg-\[url\(\'\/img\/grid\/\'\)\] {
-  background-image: url('/img/grid/');
-}
-
-.bg-\[url\(\'\/img\/grid\/img\'\)\] {
-  background-image: url('/img/grid/img');
-}
-
-.bg-\[url\(\'\/img\/grid\/img-fluid\'\)\] {
-  background-image: url('/img/grid/img-fluid');
-}
-
-.bg-\[url\(\'\/img\/grid\/img\/\'\)\] {
-  background-image: url('/img/grid/img/');
-}
-
-.bg-\[url\(\'\/img\/grid\/img\/technology\'\)\] {
-  background-image: url('/img/grid/img/technology');
-}
-
-.bg-\[url\(\'\/img\/grid\/img\/technology-1\.jpg\'\)\] {
-  background-image: url('/img/grid/img/technology-1.jpg');
-}
-
-.bg-\[url\(\'\/imgtechnology-1\.jpg\'\)\] {
-  background-image: url('/imgtechnology-1.jpg');
-}
-
-.bg-\[url\(\'\/img\/technology-1\.jpg\'\)\] {
-  background-image: url('/img/technology-1.jpg');
 }
 
 .from-blue-500 {
@@ -1095,10 +1095,6 @@ video {
 
 .bg-contain {
   background-size: contain;
-}
-
-.bg-cover {
-  background-size: cover;
 }
 
 .bg-scroll {
@@ -1364,12 +1360,6 @@ video {
   transition-duration: 150ms;
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .delay-1000 {
   transition-delay: 1000ms;
 }
@@ -1378,9 +1368,11 @@ video {
   transition-duration: 1000ms;
 }
 
-.duration-500 {
-  transition-duration: 500ms;
-}
+/* akan di compile sebagai nilai default di css nya */
+
+/* akan di buatkan di components nya */
+
+/* akan di buatkan di akhir dari tailwindcss nya */
 
 .first-letter\:float-left::first-letter {
   float: left;
@@ -1485,12 +1477,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:scale-95:hover {
-  --tw-scale-x: .95;
-  --tw-scale-y: .95;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .hover\:bg-green-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
@@ -1559,17 +1545,6 @@ video {
 
 .group:hover .group-hover\:rotate-180 {
   --tw-rotate: 180deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:rotate-12 {
-  --tw-rotate: 12deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:scale-125 {
-  --tw-scale-x: 1.25;
-  --tw-scale-y: 1.25;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1733,10 +1708,6 @@ video {
     display: flex;
   }
 
-  .md\:aspect-\[3\/4\] {
-    aspect-ratio: 3/4;
-  }
-
   .md\:w-80 {
     width: 20rem;
   }
@@ -1790,11 +1761,5 @@ video {
 
   .lg\:p-12 {
     padding: 3rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:aspect-\[4\/3\] {
-    aspect-ratio: 4/3;
   }
 }
